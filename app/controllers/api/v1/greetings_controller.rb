@@ -1,7 +1,6 @@
 class Api::V1::GreetingsController < ApplicationController
   def index
-    greetings = Greeting.all
-    @greeting = greetings[rand(greetings.size)]
-    render json: @greeting
+    @greetings = Greeting.all.sample.greeting
+    render json: { greeting: @greetings }
   end
 end
